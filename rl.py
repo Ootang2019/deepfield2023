@@ -13,7 +13,7 @@ n_env = 8
 
 def make_env(index=1):
     def handle():
-        env = TurtleEnv_Hard(index=index)
+        env = TurtleEnv(index=index)
         return env
 
     return handle
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     agent = PPO(
         "MlpPolicy", 
         env,
-        learning_rate=1e-3,
+        learning_rate=1e-4,
         n_steps=1024,  # batch
         batch_size=128,  # mini-batch
         n_epochs=20,  
