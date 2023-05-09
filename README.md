@@ -36,5 +36,12 @@ cd ~/deepfield2023
 python rl.py
 ```
 
+4. clean simulation
+- ctrl+c in all terminal
+- clean ros artifact
+```
+cd ~/deepfield2023
+bash cleanup.sh
+```
 
 
