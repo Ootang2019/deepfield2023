@@ -22,7 +22,7 @@ git clone https://github.com/Ootang2019/deepfield2023.git
 
 2. install dependencies (python 3.7+, PyTorch>=1.11)
 ```
-pip install stable-baselines3 pyyaml rospkg
+pip install stable-baselines3 pyyaml rospkg numpy
 ```
 
 3. start simulation 
