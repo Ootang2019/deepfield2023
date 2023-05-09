@@ -218,6 +218,11 @@ class TurtleEnv_Hard(TurtleEnv):
         rospy.Subscriber(
             "sim" + str(self.index) + "/turtle1/pose", Pose, self._pose_callback
         )
+        rospy.Subscriber(
+            "sim" + str(self.index) + "/turtle2/pose", Pose, self._goal_pose_callback
+        )
+
+
 
         self.clear_srv = rospy.ServiceProxy("/sim" + str(self.index) + "/clear", Empty)
         self.kill_srv = rospy.ServiceProxy("/sim" + str(self.index) + "/kill", Kill)
@@ -228,6 +233,9 @@ class TurtleEnv_Hard(TurtleEnv):
         )
         time.sleep(0.1)
 
+
+    def _goal_pose_callback(self, msg: Pose):
+        self.goal = np.array([msg.x, msg.y, msg.theta])
 
 
 if __name__ == "__main__":

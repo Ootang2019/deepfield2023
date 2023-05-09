@@ -82,5 +82,5 @@ from stable_baselines3 import DDPG, SAC, TD3
 8. Customize PPO:
 - create your own PPO from the code in Colab notebook to have maximum control over the training loop
 
-9. Try Harder Env:
+9. Try Harder Env (dynamic goal):
 - in rl.py, replace TurtleEnv with TurtleEnv_hard
