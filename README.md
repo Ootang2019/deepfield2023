@@ -85,3 +85,5 @@ from stable_baselines3 import DDPG, SAC, TD3
 
 9. Try Harder Env (dynamic goal):
 - in rl.py, replace TurtleEnv with TurtleEnv_hard
+
+![](https://github.com/Ootang2019/deepfield2023/img/turtle_hard.gif)
