@@ -53,7 +53,7 @@ class TurtleEnv(gym.Env):
         )  # [dist, delta_theta, cos(delta_theta), sin(delta_theta), x, y, theta]
         self.dist_threshold = 0.1  # done if dist < dist_threshold
 
-        self.goal_name = "target1"
+        self.goal_name = "turtle2"
         self.pos = np.zeros(3)
 
         self.steps = 0
@@ -189,6 +189,45 @@ class TurtleEnv(gym.Env):
 
     def close(self):
         rospy.signal_shutdown("Training Complete") 
+
+
+class TurtleEnv_Hard(TurtleEnv):
+    """dynamic 2nd turtle"""
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+
+    def publish_action(self, action):
+        action = self._proc_action(action)
+        cmd = Twist()
+        cmd.linear.x = action[0]
+        cmd.angular.z = action[1]
+        self.action_publisher.publish(cmd) 
+
+        cmd.linear.x *=0.5  
+        cmd.angular.z *=-0.5
+        self.goal_action_publisher.publish(cmd)        
+
+    def _create_ros_pub_sub_srv(self):
+        self.action_publisher = rospy.Publisher(
+            "sim" + str(self.index) + "/turtle1/cmd_vel", Twist, queue_size=1
+        )
+        self.goal_action_publisher = rospy.Publisher(
+            "sim" + str(self.index) + "/turtle2/cmd_vel", Twist, queue_size=1
+        )
+
+        rospy.Subscriber(
+            "sim" + str(self.index) + "/turtle1/pose", Pose, self._pose_callback
+        )
+
+        self.clear_srv = rospy.ServiceProxy("/sim" + str(self.index) + "/clear", Empty)
+        self.kill_srv = rospy.ServiceProxy("/sim" + str(self.index) + "/kill", Kill)
+        self.spawn_srv = rospy.ServiceProxy("/sim" + str(self.index) + "/spawn", Spawn)
+        self.teleport_srv = rospy.ServiceProxy(
+            "/sim" + str(self.index) + "/turtle1/teleport_absolute",
+            TeleportAbsolute,
+        )
+        time.sleep(0.1)
+
 
 
 if __name__ == "__main__":

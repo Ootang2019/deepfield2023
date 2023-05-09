@@ -1,19 +1,19 @@
 import time
 
+import numpy as np
 import rospy
 import torch
-import numpy as np
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import SubprocVecEnv
 
-from turtle_sim import TurtleEnv
+from turtle_sim import TurtleEnv, TurtleEnv_Hard
 
 n_env = 8
 
 
 def make_env(index=1):
     def handle():
-        env = TurtleEnv(index=index)
+        env = TurtleEnv_Hard(index=index)
         return env
 
     return handle
