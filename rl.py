@@ -43,9 +43,9 @@ if __name__ == "__main__":
             activation_fn=torch.nn.ReLU, net_arch=dict(pi=[16, 16], vf=[32, 32])
         ),
     )
-    # agent.learn(total_timesteps=25000)
+    agent.learn(total_timesteps=25000)
 
-    # agent.save("ppo_turtle")
+    agent.save("ppo_turtle")
     del agent # remove to demonstrate saving and loading
     agent = PPO.load("ppo_turtle")
 
