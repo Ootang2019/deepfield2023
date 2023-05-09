@@ -31,7 +31,7 @@ if __name__ == "__main__":
     agent = PPO(
         "MlpPolicy", 
         env,
-        learning_rate=1e-3,
+        learning_rate=1e-2,
         n_steps=1024,  # batch
         batch_size=128,  # mini-batch
         n_epochs=20,  
