@@ -31,7 +31,7 @@ if __name__ == "__main__":
     agent = PPO(
         "MlpPolicy", 
         env,
-        learning_rate=1e-2,
+        learning_rate=1e-3,
         n_steps=1024,  # batch
         batch_size=128,  # mini-batch
         n_epochs=20,  
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             activation_fn=torch.nn.ReLU, net_arch=dict(pi=[16, 16], vf=[32, 32])
         ),
     )
-    agent.learn(total_timesteps=30000)
+    agent.learn(total_timesteps=100000)
 
     agent.save("ppo_turtle")
     del agent # remove to demonstrate saving and loading
