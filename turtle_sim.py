@@ -40,7 +40,7 @@ class TurtleEnv(gym.Env):
         self.action_space = spaces.Box(
             low=-np.ones(self.act_dim), high=np.ones(self.act_dim), dtype=np.float32
         )
-        self.act_bnd = {"linear_x": (0, 10), "ang_z": (-20, 20)}
+        self.act_bnd = {"linear_x": (0, 5), "ang_z": (-10, 10)}
 
         self.obs_dim = 7  # [dist, theta, cos(theta), sin(theta)]
         self.observation_space = spaces.Box(
@@ -188,7 +188,7 @@ class TurtleEnv(gym.Env):
         raise NotImplementedError
 
     def close(self):
-        raise NotImplementedError
+        rospy.signal_shutdown("Training Complete") 
 
 
 if __name__ == "__main__":

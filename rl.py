@@ -2,6 +2,7 @@ import time
 
 import rospy
 import torch
+import numpy as np
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import SubprocVecEnv
 
@@ -42,13 +43,19 @@ if __name__ == "__main__":
             activation_fn=torch.nn.ReLU, net_arch=dict(pi=[16, 16], vf=[32, 32])
         ),
     )
-    agent.learn(total_timesteps=25000)
+    # agent.learn(total_timesteps=25000)
 
-    agent.save("ppo_turtle")
+    # agent.save("ppo_turtle")
     del agent # remove to demonstrate saving and loading
     agent = PPO.load("ppo_turtle")
 
+    print("Start evaluation...")
     obs = env.reset()
-    while True:
+    cumulative_reward = 0
+    for _ in range(1000):
         action, _states = agent.predict(obs)
         obs, rewards, dones, info = env.step(action)
+        cumulative_reward=+rewards
+    print(f"Evaluation Return: {np.mean(cumulative_reward)}")
+
+    env.close()

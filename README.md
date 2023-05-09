@@ -1,10 +1,16 @@
 # deepfield2023
 
 ## Sec.1 PPO tutorial
-- Practice
-https://colab.research.google.com/drive/1NPeIGPo-XkFSGTfTQyQNOjlWI7CjRmJD?usp=sharing
+1. Practice
+https://colab.research.google.com/drive/1-2IUh717LBaZadyNRWJgrNp8nggYUShu?usp=sharing
 
-- Answer
+2. change to GPU device
+- [top right dropdown] connect to a hosted runtime
+- [RAM Disk label] check if you are using GPU backend
+- if not, check [Change runtime type], and change Hardware accelerator to GPU
+
+3. Answer
+https://colab.research.google.com/drive/1NPeIGPo-XkFSGTfTQyQNOjlWI7CjRmJD?usp=sharing
 
 
 ## Sec.2 PPO Turtlesim Installation Instructions
@@ -44,4 +50,24 @@ cd ~/deepfield2023
 bash cleanup.sh
 ```
 
+## Task: Can you make training faster? Possible directions:
+1. Reward Engineering: add different penalty terms to the reward function
+- in turtle_sim.py, modify reward weight *self.rew_w* array and *compute_reward()* function
 
+2. Add a penalty for hitting the wall
+- figure out how to detect wall hitting
+- include this detection to the *observe()* function
+- add a penalty in *compute_reward()* and reward weight *self.rew_w*
+
+3. Hyper-parameter Tuning: 
+- in rl.py, modify PPO hyper-parameters or NN architecture
+
+4. Residual RL:
+- add a baseline PID controller to the environment
+- mix PID and RL command to control turtle
+
+5. Curriculum learning: 
+- make the goal easier to solve from the beginning, and then progressively make the task harder
+
+6. Improve exploration:
+- add exploration bonus to the reward to encourage agent discovering new states
