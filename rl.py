@@ -26,12 +26,12 @@ if __name__ == "__main__":
     env = SubprocVecEnv([make_env(index=i + 1) for i in range(n_env)])
     time.sleep(0.1)
 
-    rospy.init_node("PPO")
+    rospy.init_node("RL")
 
     agent = PPO(
-        "MlpPolicy",
+        "MlpPolicy", 
         env,
-        learning_rate=1e-5,
+        learning_rate=1e-3,
         n_steps=1024,  # batch
         batch_size=128,  # mini-batch
         n_epochs=20,  #

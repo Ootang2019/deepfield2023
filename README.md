@@ -55,8 +55,8 @@ bash cleanup.sh
 - in turtle_sim.py, modify reward weight *self.rew_w* array and *compute_reward()* function
 
 2. Add a penalty for hitting the wall
-- figure out how to detect wall hitting
-- include this detection to the *observe()* function
+- wallposition: x=0, y=0, x=11.1, y=11.1
+- include detection to the *observe()* function
 - add a penalty in *compute_reward()* and reward weight *self.rew_w*
 
 3. Hyper-parameter Tuning: 
@@ -71,3 +71,12 @@ bash cleanup.sh
 
 6. Improve exploration:
 - add exploration bonus to the reward to encourage agent discovering new states
+
+7. Try other agent:
+- in *rl.py*, import agents and replace PPO 
+```
+from stable_baselines3 import DDPG, SAC, TD3
+```
+
+8. Customize PPO:
+- create your own PPO from the code in Colab notebook to have maximum control over the training loop
