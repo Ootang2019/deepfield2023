@@ -34,7 +34,7 @@ if __name__ == "__main__":
         learning_rate=1e-3,
         n_steps=1024,  # batch
         batch_size=128,  # mini-batch
-        n_epochs=20,  #
+        n_epochs=20,  
         gamma=0.99,  # discount
         clip_range=0.2,  # advantage clip
         gae_lambda=0.95,

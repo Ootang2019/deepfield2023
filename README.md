@@ -54,6 +54,7 @@ bash cleanup.sh
 1. Reward Engineering: 
 - add different penalty terms to the reward function: in turtle_sim.py, modify reward weight *self.rew_w* array and *compute_reward()* function
 - clip the reward to the range [-1,1] to reduce the reward variance
+- increase reward weight, *self.rew_w* 
 
 2. Add a penalty for hitting the wall
 - wallposition: x=0, y=0, x=11.1, y=11.1
