@@ -1,0 +1,26 @@
+<launch>
+    <group ns="sim1">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim2">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim3">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim4">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim5">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim6">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim7">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+    <group ns="sim8">
+        <node name="turtle" pkg="turtlesim" type="turtlesim_node"/>
+    </group>
+</launch>
