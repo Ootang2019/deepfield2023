@@ -74,7 +74,7 @@ bash cleanup.sh
 6. Improve exploration:
 - add exploration bonus to the reward to encourage agent discovering new states
 
-7. Try other agent:
+7. Try different agent:
 - in *rl.py*, import agents and replace PPO 
 ```
 from stable_baselines3 import DDPG, SAC, TD3
@@ -85,5 +85,9 @@ from stable_baselines3 import DDPG, SAC, TD3
 
 9. Try Harder Env (dynamic goal):
 - in rl.py, replace TurtleEnv with TurtleEnv_hard
+
+10. Action Smoothness:
+- incorporate an accumulative action space
+- penalize action changes
 
 ![](https://github.com/Ootang2019/deepfield2023/img/turtle_hard.gif)

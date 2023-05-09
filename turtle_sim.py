@@ -49,7 +49,7 @@ class TurtleEnv(gym.Env):
         self.obs_bnd = {"xy": 11.1}  # wall position [0,11.1]
 
         self.rew_w = np.array(
-            [1, 0, 0, 0, 0, 0, 0]
+            [5, 0, 0, 0, 0, 0, 0]
         )  # [dist, delta_theta, cos(delta_theta), sin(delta_theta), x, y, theta]
         self.dist_threshold = 0.1  # done if dist < dist_threshold
 
