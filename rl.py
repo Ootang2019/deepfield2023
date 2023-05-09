@@ -52,7 +52,7 @@ if __name__ == "__main__":
     print("Start evaluation...")
     obs = env.reset()
     cumulative_reward = 0
-    for _ in range(1000):
+    for _ in range(1024):
         action, _states = agent.predict(obs)
         obs, rewards, dones, info = env.step(action)
         cumulative_reward=+rewards
