@@ -39,9 +39,9 @@ if __name__ == "__main__":
         clip_range=0.2,  # advantage clip
         gae_lambda=0.95,
         verbose=1,
-        policy_kwargs=dict(
-            activation_fn=torch.nn.ReLU, net_arch=dict(pi=[16, 16], vf=[32, 32])
-        ),
+        # policy_kwargs=dict(
+        #     activation_fn=torch.nn.ReLU, net_arch=dict(pi=[16, 16], vf=[32, 32])
+        # ),
     )
     agent.learn(total_timesteps=100000)
 
