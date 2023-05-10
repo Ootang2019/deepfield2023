@@ -90,5 +90,4 @@ from stable_baselines3 import DDPG, SAC, TD3
 - incorporate an accumulative action space
 - penalize action changes
 
-![TurtleEnv_hard](https://github.com/Ootang2019/deepfield2023/img/turtle_hard.gif)
-
+![TurtleEnv_hard](https://github.com/Ootang2019/deepfield2023/blob/main/img/turtle_hard.gif)
